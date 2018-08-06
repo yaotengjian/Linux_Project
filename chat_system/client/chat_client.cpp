@@ -4,7 +4,6 @@
 #include "udp_client.h"
 #include "data.h"
 #include "window.h"
-
 typedef struct{
 	udp_client *cp;
 	window *wp;
@@ -179,16 +178,6 @@ int main(int argc, char *argv[])
 //	}
 //
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
