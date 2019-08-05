@@ -13,7 +13,7 @@ void EpollServer::Start()
 	memset(&addr, 0, sizeof(addr));
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(_port);
-	// ¼àÌı±¾»úµÄanyÍø¿¨
+	// ç›‘å¬æœ¬æœºçš„anyç½‘å¡
 	addr.sin_addr.s_addr = htonl(INADDR_ANY);
 	
 	if(bind(_listenfd, (struct sockaddr*)&addr, sizeof(addr)) < 0)
@@ -37,11 +37,11 @@ void EpollServer::Start()
 		return;
 	}
 
-	// Ìí¼Ólistenfdµ½epoll£¬¼àÌıÁ¬½ÓÊÂ¼ş
+	// æ·»åŠ listenfdåˆ°epollï¼Œç›‘å¬è¿æ¥äº‹ä»¶
 	SetNonblocking(_listenfd);
 	OPEvent(_listenfd, EPOLLIN, EPOLL_CTL_ADD);
 
-	// ½øÈëÊÂ¼şÑ­»·
+	// è¿›å…¥äº‹ä»¶å¾ªç¯
 	EventLoop();
 }
 
@@ -109,7 +109,7 @@ void EpollServer::Forwarding(Channel* clientChannel, Channel* serverChannel,
 	}
 	else if (rlen == 0)
 	{
-		// client channel ·¢Æğ¹Ø±Õ
+		// client channel å‘èµ·å…³é—­
 		shutdown(serverChannel->_fd, SHUT_WR);
 		RemoveConnect(clientChannel->_fd);
 	}
@@ -179,5 +179,7 @@ void EpollServer::WriteEventHandle(int fd)
 	else
 	{
 		assert(fd);
+		
+		
 	}
 }
