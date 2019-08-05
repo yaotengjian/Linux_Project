@@ -4,7 +4,7 @@ void Sock5Server::ConnectEventHandle(int connectfd)
 {
 	TraceLog("new conenct event:%d", connectfd);
 
-	// Ìí¼Óconnectfdµ½epoll£¬¼àÌı¶ÁÊÂ¼ş
+	// æ·»åŠ connectfdåˆ°epollï¼Œç›‘å¬è¯»äº‹ä»¶
 	SetNonblocking(connectfd);
 	OPEvent(connectfd, EPOLLIN, EPOLL_CTL_ADD);
 
@@ -15,9 +15,9 @@ void Sock5Server::ConnectEventHandle(int connectfd)
 	con->_ref++;
 }
 
-// 0 ±íÊ¾Êı¾İÃ¿µ½£¬¼ÌĞøµÈ´ı
-// 1 ³É¹¦
-// -1 Ê§°Ü
+// 0 è¡¨ç¤ºæ•°æ®æ¯åˆ°ï¼Œç»§ç»­ç­‰å¾…
+// 1 æˆåŠŸ
+// -1 å¤±è´¥
 int Sock5Server::AuthHandle(int fd)
 {
 	char buf[260];
@@ -46,9 +46,9 @@ int Sock5Server::AuthHandle(int fd)
 	}
 }
 
-// Ê§°Ü -1
-// Êı¾İÃ»µ½·µ»Ø -2
-// Á¬½Ó³É¹¦ ·µ»Øserverfd
+// å¤±è´¥ -1
+// æ•°æ®æ²¡åˆ°è¿”å› -2
+// è¿æ¥æˆåŠŸ è¿”å›serverfd
 int Sock5Server::EstablishmentHandle(int fd)
 {
 	char buf[256];
@@ -172,7 +172,7 @@ void Sock5Server::ReadEventHandle(int connectfd)
 		}
 		else if (con->_state == ESTABLISHMENT)
 		{
-			// »Ø¸´
+			// å›å¤
 			char reply[10] = {0};
 			reply[0] = 0x05;
 
@@ -241,3 +241,4 @@ int main()
 	Sock5Server server(8001);
 	server.Start();
 }
+
