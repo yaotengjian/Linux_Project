@@ -93,6 +93,7 @@ int echo_www(int sock, char *path, int size)
 		return 404;
 	}
 
+	
 	char line[MAX];
 	sprintf(line,"HTTP/1.0 200 OK\r\n");
 	send(sock, line, strlen(line), 0);
