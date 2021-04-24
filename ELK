@@ -1,0 +1,11 @@
+
+基于 ELK  搭建日志分析平台
+项目架构：Elasticsearch+Logstash+Kibana+Redis+Filebeat
+项目特点：
+在客户端上安装filebeat，并指定目录与日志格式。然后在docker上部署 Logstash，作为 Logstash Client 用于收集日志，并将收集到的日志输出到 Redis 队列中。
+部署 Logstash Server 端接收 Redis 队列中的日志信息，利用 Logstash的 Filter 插件将收集到的日志信息格式化，然后将日志信息输出到 ES 集群中，ES 集群会自动对收集到的日志信息进行分片并建立索引。
+安装 kinaba 监测 ES 集群中的索引，并将数据进行可视化展示。
+项目收获：ELK 是一套集中式的日志收集，存储，分析系统，它将所有节点的日志信息统一收集处理之后展示出来，帮助运维人员在海量日志场景下快速查找和分析日志，以便定位和解决问题。
+项目使用 redis 作为消息队列用来解决生产者和消费者速度不匹配的问题，降低了 Logstash server端的压力，保障整个系统的稳定运行。
+
+博客链接：https://blog.csdn.net/yaotengjian
