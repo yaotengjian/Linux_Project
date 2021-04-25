@@ -40,9 +40,9 @@ static string GetFileName(const string& path)
 inline static void __TraceDebug(const char* filename,int line, const char* function, const char*format, ...)
 	{
 #ifdef __TRACE__
-		//Êä³öµ÷ÓÃº¯ÊıµÄĞÅÏ¢
+		//è¾“å‡ºè°ƒç”¨å‡½æ•°çš„ä¿¡æ¯
 		fprintf(stdout,"[TRACE][%s:%d] %s:",GetFileName(filename).c_str(), line, function);
-		//Êä³öÓÃ»§´òµÄtraceĞÅÏ¢
+		//è¾“å‡ºç”¨æˆ·æ‰“çš„traceä¿¡æ¯
 		va_list args;
 		va_start(args,format);
 		vfprintf(stdout,format, args);
@@ -50,15 +50,16 @@ inline static void __TraceDebug(const char* filename,int line, const char* funct
 		fprintf(stdout,"\n");
 #endif
 }
+//
 
 inline static void __ErrorDebug(const char* filename,int line, const char* function, const char*
 								format, ...)
 {
 #ifdef __DEBUG__
-	//Êä³öµ÷ÓÃº¯ÊıµÄĞÅÏ¢
+	//è¾“å‡ºè°ƒç”¨å‡½æ•°çš„ä¿¡æ¯
 	fprintf(stdout,"[ERROR][%s:%d] %s:",GetFileName(filename).c_str(), line, function);
 
-	//Êä³öÓÃ»§´òµÄtraceĞÅÏ¢
+	//è¾“å‡ºç”¨æˆ·æ‰“çš„traceä¿¡æ¯
 	va_list args;
 	va_start(args,format);
 	vfprintf(stdout,format, args);
