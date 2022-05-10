@@ -1,4 +1,4 @@
 # Linux_Project
 
 
-这玩意儿太卡了，没有gitee好用。
+这玩意儿太卡了
