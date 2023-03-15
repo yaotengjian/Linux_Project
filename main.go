@@ -84,6 +84,7 @@ func main() {
 		}
 	}()
 
+	
 	for i := 1; i < PORT_NUM; i++ {
 		port := <-results
 		if port != 0 {
@@ -102,7 +103,7 @@ func main() {
 	// for _, port := range closeports {
 	// 	fmt.Printf("%d 端口关闭\n", port)
 	// }
-
+	//
 	for _, port := range openports {
 		fmt.Printf("%d 端口打开\n", port)
 	}
