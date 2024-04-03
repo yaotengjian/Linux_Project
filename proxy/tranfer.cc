@@ -1,6 +1,6 @@
 #include "tranfer.h"
 
-// ¶àÌ¬ÊµÏÖµÄĞéº¯Êı
+// å¤šæ€å®ç°çš„è™šå‡½æ•°ã€‚
 void TranferServer::ConnectEventHandle(int connectfd)
 {	
 	int serverfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -16,7 +16,7 @@ void TranferServer::ConnectEventHandle(int connectfd)
 		return;
 	}
 
-	// ÉèÖÃ³É·Ç×èÈû£¬²¢ÇÒÌí¼Óµ½epoll
+	// è®¾ç½®æˆéé˜»å¡ï¼Œå¹¶ä¸”æ·»åŠ åˆ°epoll
 	SetNonblocking(connectfd);
 	OPEvent(connectfd, EPOLLIN, EPOLL_CTL_ADD);
 
@@ -61,6 +61,6 @@ void TranferServer::ReadEventHandle(int connectfd)
 
 int main()
 {
-	TranferServer server(8000, "35.198.193.115", 8001);
+	TranferServer server(8000, "35.198.193.115", 8002);
 	server.Start();
 }
