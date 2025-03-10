@@ -382,3 +382,44 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+
+
+
+----delete-----
+1. General（基础设置）
+set history=500：记录 500 条历史命令。
+
+filetype plugin on：启用文件类型插件。
+
+let mapleader = ","：定义前缀键为逗号（,），用于自定义快捷键。
+
+nmap <leader>w :w!<cr>：按 ,w 快速保存文件。
+
+2. VIM User Interface（界面设置）
+set so=7：光标距离窗口边缘保留 7 行。
+
+set wildmenu：启用命令行补全菜单。
+
+set ruler：显示光标位置（行列号）。
+
+set hlsearch 和 set incsearch：搜索时高亮结果并实时匹配。
+
+3. Colors and Fonts（颜色与字体）
+syntax enable：启用语法高亮。
+
+colorscheme desert：使用 desert 颜色主题。
+
+set background=dark：强制使用暗色背景。
+
+set encoding=utf8：设置编码为 UTF-8。
+
+4. 其他关键配置
+set expandtab 和 set tabstop=4：用空格替代 Tab，宽度为 4。
+
+窗口切换快捷键：<C-j/k/h/l> 快速跳转窗口。
+
+标签页管理：<leader>tn/to/tc 等操作标签页。
+
+自动删除行尾空格：通过 CleanExtraSpaces 函数实现。
+-----delete-----
